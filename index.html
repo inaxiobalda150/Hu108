@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>HU108 2027 — Iñaki</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0E1209">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HU108 2027">
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var c = document.createElement('canvas'); c.width=192; c.height=192;
+  var ctx = c.getContext('2d');
+  function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+  function ln(c,x1,y1,x2,y2){c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();}
+  var g=ctx.createLinearGradient(0,0,192,192); g.addColorStop(0,'#0A1A0C'); g.addColorStop(1,'#0E1209');
+  ctx.fillStyle=g; rr(ctx,0,0,192,192,36); ctx.fill();
+  ctx.strokeStyle='#8CBF5A'; ctx.lineWidth=7; ctx.lineCap='round';
+  ctx.beginPath(); ctx.arc(62,130,30,0,Math.PI*2); ctx.stroke();
+  ctx.fillStyle='#8CBF5A'; ctx.beginPath(); ctx.arc(62,130,5,0,Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(138,130,30,0,Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(138,130,5,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='#C8A84A'; ctx.lineWidth=6;
+  ln(ctx,62,130,100,85); ln(ctx,100,85,138,130); ln(ctx,100,85,87,130); ln(ctx,87,130,62,130); ln(ctx,100,85,119,78);
+  ctx.strokeStyle='#8CBF5A'; ctx.lineWidth=5;
+  ln(ctx,119,78,130,86); ln(ctx,119,78,126,70); ln(ctx,100,85,93,78);
+  ctx.beginPath(); ctx.moveTo(88,76); ctx.lineTo(100,76); ctx.stroke();
+  ctx.fillStyle='#8CBF5A'; ctx.beginPath(); ctx.arc(108,58,9,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='#C8A84A'; ctx.lineWidth=5; ln(ctx,108,67,100,85); ln(ctx,104,75,119,79);
+  var png=c.toDataURL('image/png');
+  var mf={name:'HU108 2027',short_name:'HU108',display:'standalone',background_color:'#0E1209',theme_color:'#0E1209',icons:[{src:png,sizes:'192x192',type:'image/png'},{src:png,sizes:'512x512',type:'image/png'}]};
+  var bl=new Blob([JSON.stringify(mf)],{type:'application/json'});
+  var ml=document.createElement('link'); ml.rel='manifest'; ml.href=URL.createObjectURL(bl); document.head.appendChild(ml);
+  var al=document.createElement('link'); al.rel='apple-touch-icon'; al.href=png; document.head.appendChild(al);
+});
+</script>
+<style>
+:root{
+  --bg:#0E1209; --bg2:#111A0F; --bg3:#0A1007;
+  --lime:#8CBF5A; --gold:#C8A84A; --orange:#D4784E;
+  --blue:#5AACCE; --green:#6B9E6B; --purple:#9B7ACE;
+  --cream:#EEE8D5; --muted:#6B7D5A; --muted2:#8A9A7A;
+  --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.04);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;display:flex;flex-direction:column;}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#0A1A0C,#0E1209);padding:14px 18px 10px;border-bottom:1px solid rgba(140,191,90,0.2);flex-shrink:0;}
+.hdr-row{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+.hdr-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--cream);line-height:1;}
+.hdr-title span{color:var(--lime);}
+.hdr-sub{font-size:10px;color:var(--muted);margin-top:3px;}
+.hdr-right{text-align:right;}
+.cd-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--orange);line-height:1;}
+.cd-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.phase-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;}
+.pchip{flex:0 0 auto;padding:5px 12px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid;transition:opacity 0.2s;}
+.pchip:not(.active){opacity:0.35;}
+.pc1{border-color:rgba(200,168,74,0.4);color:var(--gold);background:rgba(200,168,74,0.1);}
+.pc2{border-color:rgba(212,120,78,0.4);color:var(--orange);background:rgba(212,120,78,0.1);}
+.pc3{border-color:rgba(90,172,206,0.4);color:var(--blue);background:rgba(90,172,206,0.1);}
+.pc4{border-color:rgba(155,122,206,0.4);color:var(--purple);background:rgba(155,122,206,0.1);}
+
+/* SCROLL */
+.app-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+
+/* BOTTOM NAV */
+.bnav{flex-shrink:0;display:flex;background:rgba(10,16,9,0.97);border-top:1px solid var(--border);padding:8px 2px 12px;backdrop-filter:blur(10px);}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:5px 2px;border-radius:8px;transition:all 0.15s;}
+.nb .ni{font-size:17px;line-height:1;}
+.nb .nl{font-size:8px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);}
+.nb.active{background:rgba(140,191,90,0.08);}
+.nb.active .nl{color:var(--lime);}
+
+/* VIEWS */
+.view{display:none;padding-bottom:20px;}
+.view.active{display:block;}
+
+/* WEEK BAR */
+.wkbar{display:flex;align-items:center;padding:10px 14px;gap:8px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.wknav{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wknav:active{border-color:var(--lime);color:var(--lime);}
+.wkinfo{flex:1;min-width:0;}
+.wkname{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;color:var(--cream);}
+.wkdates{font-size:10px;color:var(--muted);}
+.wkbadge{font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+
+/* DAY TABS */
+.dtabs{display:flex;background:var(--bg2);border-bottom:1px solid var(--border);}
+.dtab{flex:1;padding:8px 0;text-align:center;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;}
+.dtab .ds{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;display:block;}
+.dtab .dd{font-size:8px;display:block;color:var(--muted);margin-top:1px;}
+.dtab.rest.active{border-bottom-color:var(--muted2);color:var(--cream);}
+.dtab.gym.active{border-bottom-color:var(--purple);color:var(--purple);}
+.dtab.bike.active{border-bottom-color:var(--lime);color:var(--lime);}
+.dtab.fondo.active{border-bottom-color:var(--gold);color:var(--gold);}
+.dtab.rec.active{border-bottom-color:var(--green);color:var(--green);}
+
+/* DAY HERO */
+.dhero{padding:14px 16px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
+.dh-icon{font-size:34px;flex-shrink:0;}
+.dh-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;line-height:1;}
+.dh-date{font-size:11px;color:var(--muted);margin-top:2px;}
+.dh-tags{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;}
+.dtag{font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;border:1px solid;}
+.t-gym{color:var(--purple);border-color:rgba(155,122,206,0.35);background:rgba(155,122,206,0.1);}
+.t-bike{color:var(--lime);border-color:rgba(140,191,90,0.35);background:rgba(140,191,90,0.1);}
+.t-fondo{color:var(--gold);border-color:rgba(200,168,74,0.35);background:rgba(200,168,74,0.1);}
+.t-rest{color:var(--muted);border-color:rgba(107,125,90,0.3);background:rgba(107,125,90,0.08);}
+.t-rec{color:var(--green);border-color:rgba(107,158,107,0.35);background:rgba(107,158,107,0.1);}
+.t-time{color:var(--cream);border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);}
+
+/* TRAIN CARD */
+.tcard{margin:10px 14px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);}
+.tcard-hdr{padding:9px 13px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;}
+.th-gym{background:rgba(155,122,206,0.1);color:var(--purple);border-bottom:1px solid rgba(155,122,206,0.2);}
+.th-bike{background:rgba(140,191,90,0.1);color:var(--lime);border-bottom:1px solid rgba(140,191,90,0.2);}
+.th-fondo{background:rgba(200,168,74,0.1);color:var(--gold);border-bottom:1px solid rgba(200,168,74,0.2);}
+.th-rest{background:rgba(107,125,90,0.08);color:var(--muted);border-bottom:1px solid var(--border);}
+.th-rec{background:rgba(107,158,107,0.1);color:var(--green);border-bottom:1px solid rgba(107,158,107,0.2);}
+.tcard-body{padding:11px 13px;background:rgba(255,255,255,0.025);}
+.tc-name{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:3px;}
+.tc-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+.tc-btn{display:inline-block;margin-top:8px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:6px;background:rgba(155,122,206,0.15);color:var(--purple);border:1px solid rgba(155,122,206,0.3);cursor:pointer;}
+.tc-btn.bike-btn{background:rgba(140,191,90,0.12);color:var(--lime);border-color:rgba(140,191,90,0.3);}
+.tc-segs{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;}
+.seg{font-size:9px;font-weight:600;padding:3px 8px;border-radius:5px;}
+.sg-z1{background:rgba(107,158,107,0.15);color:var(--green);}
+.sg-z2{background:rgba(200,168,74,0.15);color:var(--gold);}
+.sg-z3{background:rgba(212,120,78,0.2);color:var(--orange);}
+.sg-gym{background:rgba(155,122,206,0.15);color:var(--purple);}
+
+/* SECTION LABEL */
+.slbl{padding:10px 14px 5px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:8px;}
+.slbl::after{content:'';flex:1;height:1px;background:rgba(140,191,90,0.15);}
+
+/* MEALS */
+.mlist{padding:0 14px;display:flex;flex-direction:column;gap:6px;}
+.meal{background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;}
+.meal.mc{border-color:rgba(200,168,74,0.3);}
+.meal.mt{border-color:rgba(140,191,90,0.25);}
+.meal.mp{border-color:rgba(155,122,206,0.25);}
+.meal.ml{border-color:rgba(90,172,206,0.3);}
+.meal-top{display:flex;align-items:center;padding:9px 11px;cursor:pointer;gap:0;}
+.mt-time{width:68px;flex-shrink:0;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--lime);}
+.meal.mc .mt-time{color:var(--gold);}
+.meal.mt .mt-time{color:var(--lime);}
+.meal.mp .mt-time{color:var(--purple);}
+.meal.ml .mt-time{color:var(--blue);}
+.mt-name{flex:1;font-size:13px;font-weight:600;color:var(--cream);}
+.mt-right{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.mbadge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.mbc{background:rgba(200,168,74,0.2);color:var(--gold);}
+.mbt{background:rgba(140,191,90,0.15);color:var(--lime);}
+.mbp{background:rgba(155,122,206,0.2);color:var(--purple);}
+.mbl{background:rgba(90,172,206,0.2);color:var(--blue);}
+.mkcal{font-size:9px;color:var(--muted);}
+.mchev{font-size:9px;color:var(--muted);transition:transform 0.2s;margin-left:4px;}
+.meal.open .mchev{transform:rotate(180deg);}
+.meal-body{display:none;border-top:1px solid var(--border);padding:9px 11px;}
+.meal.open .meal-body{display:block;}
+.mitems{list-style:none;}
+.mitems li{font-size:12px;color:#B8C9A8;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;}
+.mitems li:last-child{border-bottom:none;}
+.mitems li .qty{color:var(--muted);font-size:11px;padding-left:8px;flex-shrink:0;}
+.mtip{margin-top:7px;font-size:11px;color:var(--muted);font-style:italic;padding-top:5px;border-top:1px solid rgba(255,255,255,0.05);}
+
+/* WEEK VIEW */
+.wgrid{padding:12px 14px;display:flex;flex-direction:column;gap:7px;}
+.wrow{background:var(--card);border:1px solid var(--border);border-left:3px solid;border-radius:9px;padding:10px 12px;cursor:pointer;}
+.wr-rest{border-left-color:var(--muted);}
+.wr-gym{border-left-color:var(--purple);}
+.wr-bike{border-left-color:var(--lime);}
+.wr-fondo{border-left-color:var(--gold);}
+.wr-rec{border-left-color:var(--green);}
+.wrow-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+.wrow-day{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;}
+.wrow-tag{font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:20px;}
+.wrow-body{display:flex;justify-content:space-between;font-size:11px;gap:6px;}
+.wrow-food{color:var(--muted);text-align:right;font-size:10px;flex-shrink:0;}
+
+/* GYM VIEW */
+.gym-hdr{padding:14px 16px 10px;border-bottom:1px solid var(--border);}
+.gym-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--cream);}
+.gym-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.gym-tabs{display:flex;gap:6px;margin-top:10px;}
+.gym-tab{flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:var(--card);text-align:center;cursor:pointer;transition:all 0.15s;}
+.gym-tab.active{background:rgba(155,122,206,0.15);border-color:rgba(155,122,206,0.4);}
+.gym-tab .gt-name{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;color:var(--cream);}
+.gym-tab.active .gt-name{color:var(--purple);}
+.gym-tab .gt-day{font-size:10px;color:var(--muted);}
+.phase-info-box{margin:10px 14px;background:rgba(155,122,206,0.07);border:1px solid rgba(155,122,206,0.2);border-radius:9px;padding:11px 13px;}
+.pib-title{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:5px;}
+.pib-text{font-size:12px;color:var(--muted);line-height:1.5;}
+.ex-list{padding:0 14px;display:flex;flex-direction:column;gap:7px;}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;}
+.ex-top{display:flex;align-items:center;padding:10px 12px;cursor:pointer;gap:10px;}
+.ex-num{width:26px;height:26px;border-radius:50%;background:rgba(155,122,206,0.15);color:var(--purple);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ex-info{flex:1;}
+.ex-name{font-size:13px;font-weight:600;color:var(--cream);}
+.ex-sets{font-size:11px;color:var(--muted);margin-top:1px;}
+.ex-chev{font-size:9px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.ex-card.open .ex-chev{transform:rotate(180deg);}
+.ex-body{display:none;border-top:1px solid var(--border);padding:10px 12px;}
+.ex-card.open .ex-body{display:block;}
+.ex-detail{font-size:12px;color:#B8C9A8;line-height:1.6;margin-bottom:7px;}
+.ex-tip{font-size:11px;color:var(--purple);font-style:italic;background:rgba(155,122,206,0.08);border-radius:6px;padding:7px 9px;}
+.ex-tags{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap;}
+.ex-tag{font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(155,122,206,0.12);color:var(--purple);}
+.rest-card{margin:10px 14px;background:rgba(107,158,107,0.07);border:1px solid rgba(107,158,107,0.2);border-radius:9px;padding:12px 13px;font-size:12px;color:var(--muted);}
+.rest-card strong{color:var(--green);}
+
+/* COMPRA */
+.compra-hd{padding:14px 16px 8px;}
+.compra-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--cream);}
+.compra-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.ccats{padding:0 14px 16px;display:flex;flex-direction:column;gap:8px;}
+.ccat{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.ccat-hdr{padding:10px 13px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+.ccat-hdr .chl{display:flex;align-items:center;gap:8px;}
+.ccat.prot .ccat-hdr{background:rgba(212,120,78,0.08);color:var(--orange);border-bottom:1px solid rgba(212,120,78,0.15);}
+.ccat.veg .ccat-hdr{background:rgba(140,191,90,0.08);color:var(--lime);border-bottom:1px solid rgba(140,191,90,0.15);}
+.ccat.carb .ccat-hdr{background:rgba(200,168,74,0.08);color:var(--gold);border-bottom:1px solid rgba(200,168,74,0.15);}
+.ccat.lac .ccat-hdr{background:rgba(90,172,206,0.08);color:var(--blue);border-bottom:1px solid rgba(90,172,206,0.15);}
+.ccat.extra .ccat-hdr{background:rgba(155,122,206,0.08);color:var(--purple);border-bottom:1px solid rgba(155,122,206,0.15);}
+.ccat-body{padding:6px 0;}
+.citem{display:flex;align-items:center;gap:11px;padding:7px 13px;cursor:pointer;}
+.citem:active{background:rgba(255,255,255,0.04);}
+.cicheck{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--muted);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all 0.15s;}
+.citem.checked .cicheck{background:var(--lime);border-color:var(--lime);color:var(--bg);}
+.citem.checked .citext{text-decoration:line-through;color:var(--muted);}
+.citext{font-size:13px;flex:1;}
+.ciqty{font-size:11px;color:var(--muted);}
+.reset-btn{display:block;margin:0 14px 14px;padding:10px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;cursor:pointer;}
+
+/* RECETAS */
+.rec-hd{padding:14px 16px 8px;}
+.rec-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--cream);}
+.rec-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.rlist{padding:0 14px;display:flex;flex-direction:column;gap:7px;}
+.rcard{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;}
+.rcard-top{display:flex;align-items:center;gap:11px;padding:12px 13px;}
+.remoji{font-size:26px;flex-shrink:0;}
+.rinfo{flex:1;}
+.rname{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;}
+.rmeta{display:flex;gap:6px;flex-wrap:wrap;}
+.rtag{font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;}
+.rt-time{background:rgba(255,255,255,0.07);color:var(--muted);}
+.rt-day{background:rgba(200,168,74,0.12);color:var(--gold);}
+.rt-p{background:rgba(140,191,90,0.12);color:var(--lime);}
+.rchev{font-size:13px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.rcard.open .rchev{transform:rotate(180deg);}
+.rbody{display:none;border-top:1px solid var(--border);}
+.rcard.open .rbody{display:block;}
+.rsec{padding:10px 13px;border-bottom:1px solid var(--border);}
+.rsec:last-child{border-bottom:none;}
+.rsec-title{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--lime);margin-bottom:7px;}
+.ringr{list-style:none;display:flex;flex-direction:column;gap:3px;}
+.ringr li{font-size:12px;color:#B8C9A8;display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.ringr li:last-child{border-bottom:none;}
+.ringr li .iq{color:var(--muted);font-size:11px;}
+.rsteps{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.rstep{display:flex;gap:9px;}
+.rnum{width:22px;height:22px;border-radius:50%;background:rgba(140,191,90,0.15);color:var(--lime);font-size:10px;font-weight:700;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.rtext{font-size:12px;color:#B8C9A8;line-height:1.5;flex:1;}
+.rttime{font-size:10px;color:var(--gold);margin-top:2px;}
+.rtip{background:rgba(140,191,90,0.07);border:1px solid rgba(140,191,90,0.2);border-radius:7px;padding:9px 11px;margin:8px 13px;font-size:11px;color:var(--muted);font-style:italic;}
+
+/* ANNUAL VIEW (dentro de Semana) */
+.annual-bar{display:flex;gap:0;margin:0 14px 10px;border-radius:8px;overflow:hidden;height:8px;}
+.ab-seg{flex:1;cursor:pointer;}
+.ab-p1{background:var(--gold);}
+.ab-p2{background:var(--orange);}
+.ab-p3{background:var(--blue);}
+.ab-p4{background:var(--purple);}
+.phase-summary{margin:0 14px 10px;display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.ps-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 11px;cursor:pointer;}
+.ps-card.active{border-color:rgba(140,191,90,0.4);}
+.ps-name{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+.ps-dates{font-size:10px;color:var(--muted);}
+.ps-focus{font-size:11px;color:var(--cream);margin-top:4px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-row">
+    <div>
+      <div class="hdr-title"><span>HU108</span> 2027</div>
+      <div class="hdr-sub">Iñaki · Master 58 · Plan anual</div>
+    </div>
+    <div class="hdr-right">
+      <div class="cd-num" id="cd-num">—</div>
+      <div class="cd-lbl">días para la HU108</div>
+    </div>
+  </div>
+  <div class="phase-row">
+    <div class="pchip pc1 active" onclick="setPhase(0)">🌱 Base · Jul–Sep</div>
+    <div class="pchip pc2" onclick="setPhase(1)">🔥 Intensidad · Oct–Dic</div>
+    <div class="pchip pc3" onclick="setPhase(2)">⛰️ HU108 Prep · Ene–Mar</div>
+    <div class="pchip pc4" onclick="setPhase(3)">🏁 Taper · Abr–May</div>
+  </div>
+</div>
+
+<div class="app-scroll">
+
+<!-- ═══ VIEW: DÍA ═══ -->
+<div class="view active" id="view-dia">
+  <div class="wkbar">
+    <button class="wknav" onclick="changeWeek(-1)">‹</button>
+    <div class="wkinfo">
+      <div class="wkname" id="wk-name">Semana 1</div>
+      <div class="wkdates" id="wk-dates">6–12 julio 2026</div>
+    </div>
+    <div class="wkbadge" id="wk-badge">Adaptación</div>
+    <button class="wknav" onclick="changeWeek(1)">›</button>
+  </div>
+  <div class="dtabs" id="dtabs"></div>
+  <div id="day-content"></div>
+</div>
+
+<!-- ═══ VIEW: SEMANA ═══ -->
+<div class="view" id="view-semana">
+  <div style="padding:12px 16px 6px;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--cream);">Plan Anual</div>
+    <div style="font-size:11px;color:var(--muted);">4 fases · 42 semanas · HU108 mayo 2027</div>
+  </div>
+  <div class="annual-bar">
+    <div class="ab-seg ab-p1" onclick="setPhase(0)" title="Base"></div>
+    <div class="ab-seg ab-p2" onclick="setPhase(1)" title="Intensidad"></div>
+    <div class="ab-seg ab-p3" onclick="setPhase(2)" title="Prep"></div>
+    <div class="ab-seg ab-p4" onclick="setPhase(3)" title="Taper"></div>
+  </div>
+  <div class="phase-summary">
+    <div class="ps-card active" onclick="setPhase(0);setView('dia');">
+      <div class="ps-name" style="color:var(--gold);">🌱 Fase 1</div>
+      <div class="ps-dates">Jul – Sep 2026 · 12 sem</div>
+      <div class="ps-focus">Gym desde cero · Bici suave · Perder peso</div>
+    </div>
+    <div class="ps-card" onclick="setPhase(1);setView('dia');">
+      <div class="ps-name" style="color:var(--orange);">🔥 Fase 2</div>
+      <div class="ps-dates">Oct – Dic 2026 · 13 sem</div>
+      <div class="ps-focus">Gym intenso · Bici estructurada · Trail</div>
+    </div>
+    <div class="ps-card" onclick="setPhase(2);setView('dia');">
+      <div class="ps-name" style="color:var(--blue);">⛰️ Fase 3</div>
+      <div class="ps-dates">Ene – Mar 2027 · 12 sem</div>
+      <div class="ps-focus">Prep específica HU108 · Fondos largas</div>
+    </div>
+    <div class="ps-card" onclick="setPhase(3);setView('dia');">
+      <div class="ps-name" style="color:var(--purple);">🏁 Fase 4</div>
+      <div class="ps-dates">Abr – May 2027 · 6 sem</div>
+      <div class="ps-focus">Tapering · Puesta a punto · HU108 💥</div>
+    </div>
+  </div>
+  <div class="slbl">Esta semana</div>
+  <div class="wgrid" id="week-grid"></div>
+</div>
+
+<!-- ═══ VIEW: GYM ═══ -->
+<div class="view" id="view-gym">
+  <div class="gym-hdr">
+    <div class="gym-title">Sesión de Gimnasio</div>
+    <div class="gym-sub" id="gym-phase-sub">Fase 1 · Adaptación · Sparta Sport Center Irún</div>
+    <div class="gym-tabs" style="margin-top:10px;">
+      <div class="gym-tab active" id="gym-tab-a" onclick="setGymSession('A')">
+        <div class="gt-name">Sesión A</div>
+        <div class="gt-day">Martes</div>
+      </div>
+      <div class="gym-tab" id="gym-tab-b" onclick="setGymSession('B')">
+        <div class="gt-name">Sesión B</div>
+        <div class="gt-day">Jueves</div>
+      </div>
+    </div>
+  </div>
+  <div id="gym-content"></div>
+</div>
+
+<!-- ═══ VIEW: COMPRA ═══ -->
+<div class="view" id="view-compra">
+  <div class="compra-hd">
+    <div class="compra-title">Lista de Compra</div>
+    <div class="compra-sub">Semanal · Cook once eat twice · Toca para marcar</div>
+  </div>
+  <div class="ccats">
+
+    <div class="ccat prot">
+      <div class="ccat-hdr" onclick="toggleCat(this)"><div class="chl"><span>🥩</span><span>Proteínas</span></div><span>▾</span></div>
+      <div class="ccat-body">
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Pechugas de pollo</div><div class="ciqty">800g–1kg</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Pechuga de pavo</div><div class="ciqty">400g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Solomillo de cerdo</div><div class="ciqty">400g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Ternera magra (redondo)</div><div class="ciqty">350g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Huevos</div><div class="ciqty">12 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Atún en lata al natural</div><div class="ciqty">3 latas</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Jamón ibérico / serrano</div><div class="ciqty">100g lonchas</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Lonchas de pavo</div><div class="ciqty">1 paquete</div></div>
+      </div>
+    </div>
+
+    <div class="ccat veg">
+      <div class="ccat-hdr" onclick="toggleCat(this)"><div class="chl"><span>🥦</span><span>Verduras y fruta</span></div><span>▾</span></div>
+      <div class="ccat-body">
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Tomates</div><div class="ciqty">1 kg</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Lechuga</div><div class="ciqty">1 unidad</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Pimientos rojo y verde</div><div class="ciqty">4–5 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Calabacín</div><div class="ciqty">3–4 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Champiñones</div><div class="ciqty">500g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Plátanos</div><div class="ciqty">8–10 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Naranjas o mandarinas</div><div class="ciqty">1 bolsa</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Manzanas</div><div class="ciqty">4–6 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Patatas</div><div class="ciqty">500g</div></div>
+      </div>
+    </div>
+
+    <div class="ccat carb">
+      <div class="ccat-hdr" onclick="toggleCat(this)"><div class="chl"><span>🌾</span><span>Carbohidratos</span></div><span>▾</span></div>
+      <div class="ccat-body">
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Arroz blanco e integral</div><div class="ciqty">500g cada uno</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Pasta integral</div><div class="ciqty">500g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Corn flakes / cereales integrales</div><div class="ciqty">500g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Pan integral de molde</div><div class="ciqty">1 paquete</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Lentejas cocidas (bote)</div><div class="ciqty">2 botes</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Garbanzos cocidos (bote)</div><div class="ciqty">2 botes</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Tomate triturado</div><div class="ciqty">2 botes</div></div>
+      </div>
+    </div>
+
+    <div class="ccat lac">
+      <div class="ccat-hdr" onclick="toggleCat(this)"><div class="chl"><span>🥛</span><span>Lácteos</span></div><span>▾</span></div>
+      <div class="ccat-body">
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Yogur griego natural</div><div class="ciqty">pack 6 unidades</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Leche entera o semidesnatada</div><div class="ciqty">1–2 litros</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Queso curado o semi</div><div class="ciqty">100–150g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Queso fresco o requesón</div><div class="ciqty">1 unidad</div></div>
+      </div>
+    </div>
+
+    <div class="ccat extra">
+      <div class="ccat-hdr" onclick="toggleCat(this)"><div class="chl"><span>🧴</span><span>Extras y en ruta</span></div><span>▾</span></div>
+      <div class="ccat-body">
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Dátiles</div><div class="ciqty">1 paquete</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Nueces y almendras</div><div class="ciqty">bolsa 200g</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Orejones de albaricoque</div><div class="ciqty">bolsa pequeña</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Miel</div><div class="ciqty">bote pequeño</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">AOVE (aceite oliva virgen extra)</div><div class="ciqty">si queda poco</div></div>
+        <div class="citem" onclick="ti(this)"><div class="cicheck"></div><div class="citext">Cerveza 0,0</div><div class="ciqty">si apetece</div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="reset-btn" onclick="resetCompra()">↺ Reiniciar lista</div>
+</div>
+
+<!-- ═══ VIEW: RECETAS ═══ -->
+<div class="view" id="view-recetas">
+  <div class="rec-hd">
+    <div class="rec-title">Recetas</div>
+    <div class="rec-sub">Cook once eat twice · Cena = tupper del día siguiente</div>
+  </div>
+  <div class="rlist">
+
+    <div class="rcard" onclick="toggleReceta(this)">
+      <div class="rcard-top">
+        <div class="remoji">🍗</div>
+        <div class="rinfo">
+          <div class="rname">Pollo al horno con calabacín y arroz</div>
+          <div class="rmeta"><span class="rtag rt-time">⏱ 35 min</span><span class="rtag rt-p">×2 raciones</span><span class="rtag rt-day">Dom → Lun</span></div>
+        </div>
+        <div class="rchev">▾</div>
+      </div>
+      <div class="rbody">
+        <div class="rsec">
+          <div class="rsec-title">Ingredientes (×2)</div>
+          <ul class="ringr">
+            <li>Pechuga de pollo<span class="iq">2×180g</span></li>
+            <li>Calabacín<span class="iq">2×150g</span></li>
+            <li>Champiñones<span class="iq">2×100g</span></li>
+            <li>Arroz integral<span class="iq">2×60g seco</span></li>
+            <li>Ajo, AOVE, sal, pimentón<span class="iq">al gusto</span></li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Paso a paso</div>
+          <ol class="rsteps">
+            <li class="rstep"><div class="rnum">1</div><div class="rtext">Cuece el arroz integral (20 min con doble de agua). Prepara el resto mientras tanto.<div class="rttime">⏱ 20 min</div></div></li>
+            <li class="rstep"><div class="rnum">2</div><div class="rtext">Precalienta el horno a 200°C. Coloca las pechugas en bandeja, aliña con AOVE, sal, ajo y pimentón. Hornea 20–22 min.</div></li>
+            <li class="rstep"><div class="rnum">3</div><div class="rtext">Saltea el calabacín en rodajas a fuego medio-alto con AOVE y ajo, 6–8 min. Que tenga mordida.</div></li>
+            <li class="rstep"><div class="rnum">4</div><div class="rtext">En la misma sartén, saltea los champiñones a fuego fuerte 5 min. Fuego alto para que se doren, no se cuezan.</div></li>
+            <li class="rstep"><div class="rnum">5</div><div class="rtext">Corta el pollo en filetes. Monta la mitad en tu plato y la otra mitad en el tupper con arroz y verduras.</div></li>
+          </ol>
+        </div>
+        <div class="rtip">💡 Al recalentar el arroz en el tupper: añade una cucharada de agua y tapa. Queda perfecto.</div>
+      </div>
+    </div>
+
+    <div class="rcard" onclick="toggleReceta(this)">
+      <div class="rcard-top">
+        <div class="remoji">🍲</div>
+        <div class="rinfo">
+          <div class="rname">Lentejas con ternera y pimiento</div>
+          <div class="rmeta"><span class="rtag rt-time">⏱ 25 min</span><span class="rtag rt-p">×2 raciones</span><span class="rtag rt-day">Lun → Mar</span></div>
+        </div>
+        <div class="rchev">▾</div>
+      </div>
+      <div class="rbody">
+        <div class="rsec">
+          <div class="rsec-title">Ingredientes (×2)</div>
+          <ul class="ringr">
+            <li>Lentejas cocidas (bote)<span class="iq">2×150g escurridas</span></li>
+            <li>Ternera magra en dados<span class="iq">2×140g</span></li>
+            <li>Pimiento rojo y verde<span class="iq">2×½ de cada</span></li>
+            <li>Tomate triturado<span class="iq">2×80g</span></li>
+            <li>Ajo, AOVE, comino, sal<span class="iq">al gusto</span></li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Paso a paso</div>
+          <ol class="rsteps">
+            <li class="rstep"><div class="rnum">1</div><div class="rtext">Sofríe los pimientos en tiras con AOVE a fuego medio 5 min. Añade ajo picado 1 min más.</div></li>
+            <li class="rstep"><div class="rnum">2</div><div class="rtext">Sube el fuego y añade la ternera en dados. Dora 3–4 min removiendo. No la sobrecocines.</div></li>
+            <li class="rstep"><div class="rnum">3</div><div class="rtext">Añade el tomate triturado y el comino. Cuece 5 min a fuego medio.</div></li>
+            <li class="rstep"><div class="rnum">4</div><div class="rtext">Escurre y enjuaga las lentejas del bote. Incorpóralas, mezcla y calienta 3–4 min. Ajusta sal.</div></li>
+          </ol>
+        </div>
+        <div class="rtip">💡 Lentejas de bote siempre: escurre, enjuaga y listo. Ahorras 40 min sin perder nada.</div>
+      </div>
+    </div>
+
+    <div class="rcard" onclick="toggleReceta(this)">
+      <div class="rcard-top">
+        <div class="remoji">🫘</div>
+        <div class="rinfo">
+          <div class="rname">Garbanzos con pollo y tomate</div>
+          <div class="rmeta"><span class="rtag rt-time">⏱ 20 min</span><span class="rtag rt-p">×2 raciones</span><span class="rtag rt-day">Mar → Mié</span></div>
+        </div>
+        <div class="rchev">▾</div>
+      </div>
+      <div class="rbody">
+        <div class="rsec">
+          <div class="rsec-title">Ingredientes (×2)</div>
+          <ul class="ringr">
+            <li>Garbanzos cocidos (bote)<span class="iq">2×150g escurridos</span></li>
+            <li>Pechuga de pollo en dados<span class="iq">2×130g</span></li>
+            <li>Tomate triturado<span class="iq">2×100g</span></li>
+            <li>Pimiento verde<span class="iq">2×½ unidad</span></li>
+            <li>Ajo, AOVE, pimentón dulce, sal<span class="iq">al gusto</span></li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Paso a paso</div>
+          <ol class="rsteps">
+            <li class="rstep"><div class="rnum">1</div><div class="rtext">Sofríe el pimiento con AOVE 4 min. Añade ajo y pimentón 1 min — cuidado, el pimentón se quema rápido.</div></li>
+            <li class="rstep"><div class="rnum">2</div><div class="rtext">Sube el fuego, añade el pollo y dora 3–4 min.</div></li>
+            <li class="rstep"><div class="rnum">3</div><div class="rtext">Añade tomate triturado, cuece 5 min.</div></li>
+            <li class="rstep"><div class="rnum">4</div><div class="rtext">Incorpora los garbanzos escurridos y enjuagados. Calienta 3 min sin romperlos. Listo.</div></li>
+          </ol>
+        </div>
+        <div class="rtip">💡 El plato más rápido del plan — 20 min de principio a fin.</div>
+      </div>
+    </div>
+
+    <div class="rcard" onclick="toggleReceta(this)">
+      <div class="rcard-top">
+        <div class="remoji">🥩</div>
+        <div class="rinfo">
+          <div class="rname">Solomillo de cerdo con champiñones y patata</div>
+          <div class="rmeta"><span class="rtag rt-time">⏱ 30 min</span><span class="rtag rt-p">×2 raciones</span><span class="rtag rt-day">Mié → Jue</span></div>
+        </div>
+        <div class="rchev">▾</div>
+      </div>
+      <div class="rbody">
+        <div class="rsec">
+          <div class="rsec-title">Ingredientes (×2)</div>
+          <ul class="ringr">
+            <li>Solomillo de cerdo<span class="iq">2×200g</span></li>
+            <li>Champiñones laminados<span class="iq">2×150g</span></li>
+            <li>Calabacín<span class="iq">2×120g</span></li>
+            <li>Patata mediana<span class="iq">2×1 unidad</span></li>
+            <li>Ajo, AOVE, sal, romero<span class="iq">al gusto</span></li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Paso a paso</div>
+          <ol class="rsteps">
+            <li class="rstep"><div class="rnum">1</div><div class="rtext">Cuece las patatas en rodajas en agua con sal, 15–18 min. Escurre y reserva.<div class="rttime">⏱ 15–18 min</div></div></li>
+            <li class="rstep"><div class="rnum">2</div><div class="rtext">Corta el solomillo en medallones de 2 cm. Sécalos con papel de cocina.</div></li>
+            <li class="rstep"><div class="rnum">3</div><div class="rtext">Sartén muy caliente con AOVE. Dora los medallones 2–3 min por lado. Retira y reserva.</div></li>
+            <li class="rstep"><div class="rnum">4</div><div class="rtext">En la misma sartén, saltea champiñones y calabacín a fuego fuerte 6–7 min. Añade ajo al final.</div></li>
+            <li class="rstep"><div class="rnum">5</div><div class="rtext">Monta: medallones + verduras + patata. La mitad al tupper.</div></li>
+          </ol>
+        </div>
+        <div class="rtip">💡 Para recalentar: añade una cucharada de agua, tapa y 2 min al microondas.</div>
+      </div>
+    </div>
+
+    <div class="rcard" onclick="toggleReceta(this)">
+      <div class="rcard-top">
+        <div class="remoji">🫕</div>
+        <div class="rinfo">
+          <div class="rname">Pavo con pimiento y arroz integral</div>
+          <div class="rmeta"><span class="rtag rt-time">⏱ 25 min</span><span class="rtag rt-p">×2 raciones</span><span class="rtag rt-day">Jue → Vie</span></div>
+        </div>
+        <div class="rchev">▾</div>
+      </div>
+      <div class="rbody">
+        <div class="rsec">
+          <div class="rsec-title">Ingredientes (×2)</div>
+          <ul class="ringr">
+            <li>Pechuga de pavo en dados<span class="iq">2×160g</span></li>
+            <li>Pimiento rojo y verde<span class="iq">2×½ de cada</span></li>
+            <li>Champiñones<span class="iq">2×100g</span></li>
+            <li>Arroz integral<span class="iq">2×55g seco</span></li>
+            <li>Ajo, AOVE, orégano, sal<span class="iq">al gusto</span></li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <div class="rsec-title">Paso a paso</div>
+          <ol class="rsteps">
+            <li class="rstep"><div class="rnum">1</div><div class="rtext">Cuece el arroz integral (20 min). Prepara el resto mientras.<div class="rttime">⏱ 20 min paralelo</div></div></li>
+            <li class="rstep"><div class="rnum">2</div><div class="rtext">Sofríe los pimientos en tiras 4 min. Añade champiñones a fuego alto 4 min más.</div></li>
+            <li class="rstep"><div class="rnum">3</div><div class="rtext">Añade el pavo en dados. El pavo es más seco que el pollo — en cuanto esté dorado, baja el fuego.</div></li>
+            <li class="rstep"><div class="rnum">4</div><div class="rtext">Añade ajo, orégano, sal. 2 min más. Sirve con el arroz. Mitad al tupper.</div></li>
+          </ol>
+        </div>
+        <div class="rtip">💡 No sobrecocines el pavo o quedará seco. Fuego bajito los últimos minutos.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end scroll -->
+
+<!-- BOTTOM NAV -->
+<div class="bnav">
+  <div class="nb active" id="nb-dia" onclick="setView('dia')"><div class="ni">📅</div><div class="nl">Día</div></div>
+  <div class="nb" id="nb-semana" onclick="setView('semana')"><div class="ni">📋</div><div class="nl">Plan</div></div>
+  <div class="nb" id="nb-gym" onclick="setView('gym')"><div class="ni">🏋️</div><div class="nl">Gym</div></div>
+  <div class="nb" id="nb-compra" onclick="setView('compra')"><div class="ni">🛒</div><div class="nl">Compra</div></div>
+  <div class="nb" id="nb-recetas" onclick="setView('recetas')"><div class="ni">👨‍🍳</div><div class="nl">Recetas</div></div>
+</div>
+
+<script>
+// ── CONSTANTS ─────────────────────────────────────────────────────────────────
+const HU108 = new Date('2027-05-16');
+const DAY_NAMES = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+const DAY_SHORT = ['Lu','Ma','Mi','Ju','Vi','Sa','Do'];
+const MONTHS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const MONTHS_L = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+// Lun=0, Mar=1, Mié=2, Jue=3, Vie=4, Sáb=5, Dom=6
+const DAY_TYPE = ['rest','gym','rest','gym','rest','fondo','rec'];
+const DAY_ICONS = {rest:'😴', gym:'🏋️', fondo:'🚴', rec:'🔄'};
+const DAY_LABEL = {rest:'Descanso', gym:'Gimnasio', fondo:'Bici — Fondo', rec:'Bici — Recuperación'};
+
+// Phases
+const PHASES = [
+  {name:'Base',dates:'Jul–Sep 2026',weeks:12,startWeek:0,color:'var(--gold)',badge:'Adaptación'},
+  {name:'Intensidad',dates:'Oct–Dic 2026',weeks:13,startWeek:12,color:'var(--orange)',badge:'Progresión'},
+  {name:'Prep HU108',dates:'Ene–Mar 2027',weeks:12,startWeek:25,color:'var(--blue)',badge:'Específico'},
+  {name:'Taper',dates:'Abr–May 2027',weeks:6,startWeek:37,color:'var(--purple)',badge:'Tapering'}
+];
+
+// Week meta per phase (relative week within phase)
+function getWeekMeta(weekIdx) {
+  let ph=0, rel=weekIdx;
+  for(let i=0;i<PHASES.length;i++){
+    if(weekIdx < PHASES[i].startWeek + PHASES[i].weeks){ ph=i; rel=weekIdx-PHASES[i].startWeek; break; }
+  }
+  const phase = PHASES[ph];
+  const badges = [
+    // Phase 1 badges
+    ['Adaptación','Adaptación','Adaptación','🔋 Recuperación','Progresión','Progresión','Progresión','🔋 Recuperación','Consolidación','Consolidación','Consolidación','🔋 Recuperación'],
+    // Phase 2 badges
+    ['Fuerza','Fuerza','Fuerza','🔋 Recuperación','Volumen','Volumen','Volumen','🔋 Recuperación','Pico','Pico','Pico','Pico','🔋 Recuperación'],
+    // Phase 3 badges
+    ['Específico','Específico','Específico','🔋 Recuperación','Carga','Carga','Carga','Carga','🔋 Recuperación','Pico','Pico','🔋 Recuperación'],
+    // Phase 4 badges
+    ['Bajada','Bajada','Pre-carrera','Pre-carrera','🏁 Semana carrera','🏁 Semana carrera']
+  ];
+  const badge = badges[ph] ? (badges[ph][rel] || phase.badge) : phase.badge;
+  return { phase: ph, rel, badge, phaseObj: phase };
+}
+
+// Date helpers — Week 1 starts Monday July 6, 2026
+function getWeekStart(weekIdx) {
+  const d = new Date('2026-07-06');
+  d.setDate(d.getDate() + weekIdx * 7);
+  return d;
+}
+function getDayDate(weekIdx, dayIdx) {
+  const s = getWeekStart(weekIdx);
+  s.setDate(s.getDate() + dayIdx); // Lun=0, Mar=1, ..., Dom=6
+  return s;
+}
+function fmtS(d){ return d.getDate() + ' ' + MONTHS[d.getMonth()]; }
+function fmtL(d){ return d.getDate() + ' de ' + MONTHS_L[d.getMonth()]; }
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let curWeek = 0;
+let curDay = new Date().getDay();
+let curPhase = 0;
+let curGymSes = 'A';
+
+// ── TRAINING DATA BY PHASE ────────────────────────────────────────────────────
+function getTraining(dayType, weekIdx) {
+  const {phase, rel} = getWeekMeta(weekIdx);
+  const isRec = rel === 3 || rel === 7 || rel === 11; // recovery weeks
+
+  if(dayType === 'rest') return {name:'Descanso', desc:'Recuperación completa. El cuerpo se adapta en los días de descanso.', type:'rest'};
+
+  if(dayType === 'rec') {
+    const distMap = [['30–45 km','1h30'],['35–50 km','2h'],['40–55 km','2h'],['25–35 km','1h'],['50–65 km','2h30'],['55–70 km','3h'],['60–75 km','3h'],['30–40 km','1h30'],['65–80 km','3h30'],['70–80 km','3h30'],['70–80 km','3h30'],['40–50 km','2h']];
+    const d = distMap[Math.min(rel, distMap.length-1)] || ['30–40 km','1h30'];
+    return {name:'Bici — Recuperación Z1', time:d[1], desc:`${d[0]} a ritmo muy suave. Z1 puro. Sal después de la comida si puedes — el domingo sin prisa.`, type:'rec', segs:['Z1 suave',d[0]]};
+  }
+
+  if(dayType === 'fondo') {
+    const fondoMap = [
+      ['45–55 km','2h30','Z2 estable. Primera salida del plan. Sin cronómetro, a disfrutar.'],
+      ['55–65 km','3h','Z2. Practica comer y beber en movimiento.'],
+      ['65–75 km','3h30','Z2. Incluye algún tramo de tierra si puedes.'],
+      ['35–45 km','2h','Semana de recuperación. Z2 bajo, tranquilo.'],
+      ['75–85 km','3h30','Z2/Z3. Primera fondo seria del plan.'],
+      ['80–90 km','4h','Z2 puro. Día clave. Alimentación cada 45 min.'],
+      ['85–95 km','4h30','Simulacro de carrera. Misma rutina que el día real.'],
+      ['45–55 km','2h','Recuperación. Z2 suave, sin objetivos.'],
+      ['90–100 km','4h30','Gran fondo. Z2/Z3. Confirmas que puedes.'],
+      ['80–90 km','4h','Última carga. Termina con ganas.'],
+      ['70–80 km','3h30','Bajada. Z2 cómodo.'],
+      ['45 km','2h','Semana de recuperación pre-fase 2.'],
+    ];
+    const f = fondoMap[Math.min(rel, fondoMap.length-1)] || ['50 km','2h30','Z2 estable.'];
+    return {name:`Fondo larga — ${f[0]}`, time:f[1], desc:f[2], type:'fondo', segs:['Z2 base', f[0], 'Comer cada 45 min']};
+  }
+
+  if(dayType === 'gym') {
+    const sesLetter = (dayIdx) => dayIdx === 2 ? 'A' : 'B';
+    const gymDesc = phase === 0
+      ? 'Sesión a las 19:00h en el Sparta. Técnica primero, peso después. La comida del mediodía es tu combustible principal — el snack de las 18h solo da el último empujón.'
+      : phase === 1
+      ? 'Sesión a las 19:00h. Cargas más altas, menos repeticiones. La progresión semana a semana es lo que genera adaptación.'
+      : 'Sesión a las 19:00h. Mantenimiento de fuerza compatible con el volumen de bici de esta fase.';
+    return {name:`Sesión ${sesLetter(0)} — Full Body`, time:'60–90 min', desc:gymDesc, type:'gym', gym:true};
+  }
+  return {name:'Entreno', type:'rest'};
+}
+
+// ── MEALS ─────────────────────────────────────────────────────────────────────
+function getMeals(dayIdx) {
+  const menuKey = ['A','B','C'][curWeek % 3];
+  const dt = ['lun','mar','mie','jue','vie','sab','dom'][dayIdx];
+
+  // Bloques fijos reutilizables
+  const BRK_GYM = {t:'Desayuno',n:'Desayuno de gimnasio',k:'~460 kcal',items:[['Corn flakes / cereales con leche','60g'],['Naranja o manzana','1 pieza'],['Huevo cocido','2 huevos'],['Café','1 taza']],tip:null};
+  const SNACK_M = {t:'Media mañana',n:'Snack',k:'~130 kcal',items:[['Yogur griego','1 unidad'],['Nueces o almendras','10–12 unidades']],tip:null};
+  const PREGYM = {t:'Pre-gym · 18:00',n:'Snack pre-entreno',k:'~120 kcal',items:[['Plátano','1 mediano'],['Dátiles','2–3 unidades']],tip:'18:00–18:30 antes de salir al Sparta. Estómago ligero = mejor entreno.',badge:'p',bl:'PRE-GYM'};
+  const PREFONDO = {t:'Merienda',n:'Plátano y dátiles pre-fondo',k:'~160 kcal',items:[['Plátano','1 mediano'],['Dátiles','4 unidades']],tip:null};
+
+  // Sábado — siempre igual (fondo)
+  if(dt==='sab') return [
+    {t:'Desayuno',n:'Pre-fondo — 2h antes',k:'~550 kcal',items:[['Arroz blanco con AOVE y sal','90g seco'],['Huevos revueltos','2 huevos'],['Plátano','1 mediano'],['Café','1 taza']],tip:'Arroz blanco: digestión rápida, energía limpia. 2h antes de salir.'},
+    {t:'En ruta',n:'Alimentación en movimiento',k:'300–500 kcal',items:[['Plátanos','2–3 unidades'],['Dátiles','6–8 unidades'],['Bocadillo lomo o jamón (km 50+)','1 pequeño'],['Frutos secos + orejones','puñado']],tip:'Come algo cada 45 min desde el km 20. Agua: 500–750ml/hora.',badge:'p',bl:'EN RUTA'},
+    {t:'Post-fondo',n:'Primeros 30 min al llegar',k:'~260 kcal',items:[['Yogur griego con plátano y miel','1 yogur + ½ plátano'],['Agua con pizca de sal','500ml']],tip:'Ventana de recuperación. No esperes a tener hambre.'},
+    {t:'Comida',n:'Comida de recuperación',k:'~580 kcal',items:[['Pollo, ternera o cerdo a la plancha','200g'],['Patata cocida o arroz','1 patata grande'],['Ensalada de tomate con AOVE','plato mediano']],tip:'Hoy comes sin culpa. El cuerpo lo necesita.'},
+    {t:'Cena',n:'Cena ligera',k:'~360 kcal',items:[['Tortilla o revuelto variado','3 huevos'],['Ensalada de temporada','plato mediano'],['Pan integral','1 rebanada']],tip:'Sábado noche sin sistema. Lo que apetezca.'}
+  ];
+
+  // Domingo — cena varía por menú (= tupper del lunes)
+  if(dt==='dom') {
+    const cenas = {
+      A:{t:'Cena',n:'Pollo al horno con calabacín y arroz',k:'~500 kcal',items:[['Pechuga de pollo al horno','2×180g'],['Calabacín a la plancha con ajo','2×150g'],['Champiñones salteados','2×100g'],['Arroz integral','2×60g seco']],tip:'🍳 Cocinas el doble. La mitad al tupper del lunes.',badge:'c',bl:'DOBLE'},
+      B:{t:'Cena',n:'Estofado de ternera con patata y zanahoria',k:'~520 kcal',items:[['Ternera para guisar en dados','2×170g'],['Patata mediana','2×1 unidad'],['Zanahoria','2×1 unidad'],['Tomate triturado + laurel + caldo','al gusto']],tip:'🍳 El estofado mejora de un día para otro. Tupper del lunes.',badge:'c',bl:'DOBLE'},
+      C:{t:'Cena',n:'Ternera a la plancha con pisto y arroz',k:'~510 kcal',items:[['Ternera magra a la plancha','2×170g'],['Pisto (calabacín, pimiento, tomate)','2×150g'],['Arroz blanco','2×60g seco']],tip:'🍳 El pisto se hace en 15 min y aguanta perfectamente en tupper.',badge:'c',bl:'DOBLE'}
+    };
+    return [
+      {t:'Desayuno',n:'Desayuno del domingo',k:'~400 kcal',items:[['Tortilla francesa','3 huevos'],['Tomate aliñado con AOVE','1 tomate'],['Jamón ibérico','2 lonchas'],['Café con leche','1 taza']],tip:null},
+      {t:'Media mañana',n:'Fruta con queso',k:'~140 kcal',items:[['Manzana o pera','1 pieza'],['Queso curado','30g']],tip:null},
+      {t:'Comida',n:'Atún con ensalada completa y arroz',k:'~480 kcal',items:[['Atún en lata al natural','2 latas'],['Lechuga, tomate, pimiento, aceitunas','plato grande'],['Huevo cocido','1 unidad'],['Arroz blanco','60g seco'],['AOVE + limón','aliño']],tip:null},
+      {t:'Merienda',n:'Yogur con fruta',k:'~150 kcal',items:[['Yogur griego','1 unidad'],['Plátano o naranja','1 pieza']],tip:null},
+      cenas[menuKey]
+    ];
+  }
+
+  // Días entre semana por menú
+  const MENUS = {
+    A: {
+      lun:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Pollo al horno con calabacín y arroz',k:'~500 kcal',items:[['Tupper de la cena del domingo','misma ración']],tip:'Carga principal pre-gym de las 19h. Come bien.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Lentejas con ternera y pimiento',k:'~520 kcal',items:[['Lentejas cocidas (bote)','2×150g'],['Ternera magra en dados','2×140g'],['Pimiento rojo y verde','2×½'],['Tomate triturado','2×80g']],tip:'🍳 Cocinas el doble. Las lentejas mejoran de un día para otro.',badge:'c',bl:'DOBLE'}],
+      mar:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Lentejas con ternera y pimiento',k:'~520 kcal',items:[['Tupper de la cena del lunes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Garbanzos con pollo y tomate',k:'~500 kcal',items:[['Garbanzos cocidos (bote)','2×150g'],['Pechuga de pollo en dados','2×130g'],['Tomate triturado + pimentón','2×100g'],['Pimiento verde','2×½']],tip:'🍳 Cocinas el doble. Cena post-gym (~21h).',badge:'c',bl:'DOBLE'}],
+      mie:[
+        {t:'Desayuno',n:'Tortilla francesa con tomate y jamón',k:'~400 kcal',items:[['Tortilla francesa','3 huevos'],['Tomate aliñado con AOVE','1 tomate'],['Jamón ibérico','2 lonchas'],['Café','1 taza']],tip:null},
+        SNACK_M,
+        {t:'Mediodía',n:'Garbanzos con pollo y tomate',k:'~500 kcal',items:[['Tupper de la cena del martes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        {t:'Merienda',n:'Fruta y queso',k:'~140 kcal',items:[['Naranja','1 pieza'],['Queso curado','30g']],tip:null},
+        {t:'Cena',n:'Solomillo de cerdo con champiñones y patata',k:'~530 kcal',items:[['Solomillo de cerdo a la plancha','2×200g'],['Champiñones salteados con ajo','2×150g'],['Calabacín','2×120g'],['Patata cocida','2×1 mediana']],tip:'🍳 Cocinas el doble.',badge:'c',bl:'DOBLE'}],
+      jue:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Solomillo de cerdo con champiñones y patata',k:'~530 kcal',items:[['Tupper de la cena del miércoles','misma ración']],tip:'5h para digerir antes del gym de las 19h.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Tortilla española con ensalada de tomate y atún',k:'~480 kcal',items:[['Tortilla española (patata + cebolla)','2 raciones'],['Atún en lata en la ensalada','1 lata'],['Tomate, lechuga aliñados','plato'],['Pan integral','1 rebanada']],tip:'🍳 La tortilla española aguanta en tupper fría o templada — está buenísima.',badge:'c',bl:'DOBLE'}],
+      vie:[
+        {t:'Desayuno',n:'Tostadas con tomate y jamón',k:'~380 kcal',items:[['Pan integral tostado','2 rebanadas'],['Tomate rallado con AOVE','1 tomate'],['Jamón ibérico','2–3 lonchas'],['Café','1 taza']],tip:null},
+        {t:'Mediodía',n:'Tortilla española con ensalada',k:'~480 kcal',items:[['Tupper de la cena del jueves','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        PREFONDO,
+        {t:'Cena',n:'Pasta con pollo y tomate — pre-carga sábado',k:'~580 kcal',items:[['Pasta integral','90g seco'],['Pechuga de pollo en dados','150g'],['Tomate triturado + ajo + AOVE','salsa casera']],tip:'Solo esta noche. Llena el depósito para la fondo del sábado.',badge:'l',bl:'PRE-FONDO'}]
+    },
+    B: {
+      lun:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Estofado de ternera con patata y zanahoria',k:'~520 kcal',items:[['Tupper de la cena del domingo','misma ración']],tip:'Carga principal pre-gym. Un guiso contundente.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Arroz con pollo a la cazadora',k:'~510 kcal',items:[['Pollo (muslo o pechuga)','2×160g'],['Arroz blanco','2×70g seco'],['Pimiento, tomate y ajo en salsa','al gusto'],['Caldo de pollo','200ml']],tip:'🍳 Cocinas el doble. El arroz caldoso mejora reposado.',badge:'c',bl:'DOBLE'}],
+      mar:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Arroz con pollo a la cazadora',k:'~510 kcal',items:[['Tupper de la cena del lunes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Pisto con huevos escalfados y pan',k:'~460 kcal',items:[['Pisto (calabacín, pimiento, tomate)','2×200g'],['Huevos escalfados sobre el pisto','2×2 huevos'],['Pan integral','2×1 rebanada'],['AOVE y ajo','al gusto']],tip:'🍳 El pisto viaja bien en tupper. Calienta y el huevo se termina de hacer solo.',badge:'c',bl:'DOBLE'}],
+      mie:[
+        {t:'Desayuno',n:'Revuelto de huevos con pimiento y tomate',k:'~390 kcal',items:[['Huevos revueltos','3 huevos'],['Pimiento rojo + tomate salteados','150g'],['Pan integral','1 rebanada'],['Café','1 taza']],tip:null},
+        SNACK_M,
+        {t:'Mediodía',n:'Pisto con huevos y pan',k:'~460 kcal',items:[['Tupper de la cena del martes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        {t:'Merienda',n:'Jamón y fruta',k:'~140 kcal',items:[['Manzana o naranja','1 pieza'],['Jamón ibérico','3 lonchas']],tip:null},
+        {t:'Cena',n:'Albóndigas de pavo en salsa de tomate con arroz',k:'~520 kcal',items:[['Albóndigas de pavo','2×150g'],['Salsa de tomate natural con ajo','2×100g'],['Arroz integral','2×55g seco']],tip:'🍳 Las albóndigas en salsa están mejor al día siguiente. Tupper del jueves.',badge:'c',bl:'DOBLE'}],
+      jue:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Albóndigas de pavo con arroz',k:'~520 kcal',items:[['Tupper de la cena del miércoles','misma ración']],tip:'Contundente y sabroso. 5h para digerir antes del gym.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Ensalada completa de garbanzos, atún, huevo y jamón',k:'~490 kcal',items:[['Garbanzos cocidos','2×120g'],['Atún en lata al natural','2×1 lata'],['Huevo cocido','2×1 huevo'],['Lechuga, tomate, pimiento','plato grande'],['Jamón ibérico en tiras','2×30g'],['AOVE + vinagre de jerez + sal','aliño aparte']],tip:'🍳 Lleva el aliño aparte en un botecito. En el trabajo la mezclas y está fresca.',badge:'c',bl:'DOBLE'}],
+      vie:[
+        {t:'Desayuno',n:'Tostadas con tomate y queso',k:'~380 kcal',items:[['Pan integral tostado','2 rebanadas'],['Tomate rallado con AOVE','1 tomate'],['Queso curado en lonchas','30g'],['Naranja','1 pieza'],['Café','1 taza']],tip:null},
+        {t:'Mediodía',n:'Ensalada de garbanzos, atún, huevo y jamón',k:'~490 kcal',items:[['Tupper de la cena del jueves','aliña justo antes de comer']],tip:null,badge:'t',bl:'TUPPER'},
+        PREFONDO,
+        {t:'Cena',n:'Pasta con gambas y tomate — pre-carga sábado',k:'~580 kcal',items:[['Pasta integral','90g seco'],['Gambas o langostinos pelados','150g'],['Tomate triturado + ajo + AOVE','salsa'],['Perejil fresco','al gusto']],tip:'Versión festiva del viernes. Las gambas en 5 min están listas.',badge:'l',bl:'PRE-FONDO'}]
+    },
+    C: {
+      lun:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Ternera a la plancha con pisto y arroz',k:'~510 kcal',items:[['Tupper de la cena del domingo','misma ración']],tip:'Carga principal pre-gym.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Tortilla de patata y cebolla con ensalada elaborada',k:'~500 kcal',items:[['Tortilla de patata y cebolla','2 raciones grandes'],['Ensalada: lechuga, tomate, pimiento, atún, aceitunas','plato grande'],['AOVE + sal','aliño']],tip:'🍳 La tortilla de patata en tupper es un clásico — fría o templada igual de buena.',badge:'c',bl:'DOBLE'}],
+      mar:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Tortilla de patata con ensalada elaborada',k:'~500 kcal',items:[['Tupper de la cena del lunes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Pollo al ajillo con champiñones y patata',k:'~510 kcal',items:[['Muslo o contramuslo de pollo','2×180g'],['Champiñones laminados','2×150g'],['Patata mediana','2×1'],['Ajo, AOVE, perejil y vino blanco opcional','al gusto']],tip:'🍳 El pollo al ajillo en tupper es una delicia. El ajo se suaviza y el caldo es el mejor aliño.',badge:'c',bl:'DOBLE'}],
+      mie:[
+        {t:'Desayuno',n:'Tostadas con tomate, AOVE y jamón',k:'~400 kcal',items:[['Pan integral tostado','2 rebanadas'],['Tomate rallado con AOVE','1 tomate'],['Jamón ibérico','3 lonchas'],['Café con leche','1 taza']],tip:null},
+        SNACK_M,
+        {t:'Mediodía',n:'Pollo al ajillo con champiñones y patata',k:'~510 kcal',items:[['Tupper de la cena del martes','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        {t:'Merienda',n:'Yogur con fruta',k:'~150 kcal',items:[['Yogur griego','1 unidad'],['Manzana o plátano','1 pieza']],tip:null},
+        {t:'Cena',n:'Sopa de cocido express',k:'~500 kcal',items:[['Pollo (muslo o pechuga)','2×150g'],['Garbanzos cocidos (bote)','2×100g'],['Zanahoria + apio','al gusto'],['Fideos o pasta pequeña','2×40g seco'],['Caldo de pollo o agua con pastilla','1 litro']],tip:'🍳 La sopa de cocido mejora enormemente de un día para otro. El tupper del jueves te va a encantar.',badge:'c',bl:'DOBLE'}],
+      jue:[BRK_GYM, SNACK_M,
+        {t:'Mediodía',n:'Sopa de cocido express',k:'~500 kcal',items:[['Tupper de la cena del miércoles','misma ración (calienta bien)']],tip:'Una buena sopa de cocido — digestiva y energizante antes del gym.',badge:'t',bl:'TUPPER'},
+        PREGYM,
+        {t:'Cena post-gym',n:'Lomo de cerdo a la plancha con champiñones y ensalada',k:'~490 kcal',items:[['Lomo de cerdo a la plancha','2×180g'],['Champiñones salteados con ajo','2×150g'],['Ensalada de lechuga, tomate y pimiento','plato mediano'],['Pan integral','1 rebanada']],tip:'🍳 El lomo en tupper: córtalo en filetes finos, aguanta bien.',badge:'c',bl:'DOBLE'}],
+      vie:[
+        {t:'Desayuno',n:'Yogur con cereales, fruta y nueces',k:'~390 kcal',items:[['Yogur griego natural','1 unidad grande'],['Corn flakes / cereales integrales','30g'],['Plátano o manzana en trozos','1 pieza'],['Nueces','4–5 unidades'],['Café','1 taza']],tip:'El desayuno diferente del viernes — el yogur como protagonista.'},
+        {t:'Mediodía',n:'Lomo con champiñones y ensalada',k:'~490 kcal',items:[['Tupper de la cena del jueves','misma ración']],tip:null,badge:'t',bl:'TUPPER'},
+        PREFONDO,
+        {t:'Cena',n:'Pasta con ternera y champiñones — pre-carga sábado',k:'~580 kcal',items:[['Pasta integral','90g seco'],['Ternera magra en tiras','150g'],['Champiñones salteados','100g'],['Tomate triturado + ajo + AOVE','salsa']],tip:'Pre-carga del sábado. Versión con ternera y champiñones — más contundente.',badge:'l',bl:'PRE-FONDO'}]
+    }
+  };
+
+  return (MENUS[menuKey] && MENUS[menuKey][dt]) ? MENUS[menuKey][dt] : [];
+}
+
+// ── GYM SESSIONS ──────────────────────────────────────────────────────────────
+const GYM = {
+  A: {
+    title: 'Sesión A — Full Body',
+    day: 'Martes',
+    note: 'Empieza siempre con 8–10 min de cardio suave (bici estática o caminadora). Termina con 10 min de estiramientos. Primera fase: aprende el movimiento antes de añadir peso.',
+    exercises: [
+      {name:'Calentamiento cardiovascular', sets:'8–10 min', detail:'Bici estática o caminadora a ritmo suave. Objetivo: elevar la temperatura corporal y activar las articulaciones. No te agotes aquí.', tip:'A los 58 el calentamiento es más importante que para un joven. No lo saltes nunca.', tags:['Cardio','Articulaciones']},
+      {name:'Sentadilla goblet con mancuerna', sets:'3 series × 12 reps', detail:'Coge una mancuerna ligera (6–10 kg para empezar) con ambas manos a la altura del pecho. Pies a anchura de hombros. Baja despacio (2–3 seg), rodillas sobre los pies, espalda recta, mirada al frente. Sube empujando con los talones.', tip:'Primero las 2 primeras semanas sin peso o con mancuerna muy ligera. La técnica primero.', tags:['Piernas','Glúteos','Core']},
+      {name:'Press de pecho en máquina', sets:'3 series × 12 reps', detail:'Ajusta el asiento para que las manos estén a la altura del pecho. Empuja hacia adelante de forma controlada. Vuelve despacio sin dejar que los pesos choquen. Espalda apoyada en el respaldo en todo momento.', tip:'La máquina es mejor que la barra para empezar — más segura y más fácil de controlar.', tags:['Pecho','Hombros','Tríceps']},
+      {name:'Remo en polea baja', sets:'3 series × 12 reps', detail:'Sentado frente a la polea, espalda recta (no arqueada), agarra el accesorio con ambas manos. Tira hacia el abdomen apretando los omóplatos al final del movimiento. Vuelve despacio.', tip:'Imagina que quieres juntar los omóplatos al tirar. Eso es lo que activa la espalda correctamente.', tags:['Espalda','Bíceps','Core']},
+      {name:'Peso muerto rumano con mancuernas', sets:'3 series × 12 reps', detail:'De pie, mancuernas frente a los muslos. Baja inclinando el torso hacia adelante con la espalda recta (no redonda), hasta sentir tensión en los isquiotibiales. Vuelve empujando las caderas hacia adelante.', tip:'La espalda recta es FUNDAMENTAL. Si la pierdes, el peso es demasiado. Empieza muy ligero.', tags:['Isquiotibiales','Glúteos','Lumbar']},
+      {name:'Press de hombros en máquina', sets:'3 series × 10 reps', detail:'Ajusta el asiento para que los codos estén ligeramente por debajo de los hombros al inicio. Empuja hacia arriba sin bloquear los codos al final. Baja controlado.', tip:'Los hombros son articulaciones delicadas. Nunca fuerces el rango de movimiento.', tags:['Hombros','Tríceps']},
+      {name:'Plancha frontal', sets:'3 series × 30 seg (progresivo)', detail:'Apoya antebrazos y puntas de los pies. Cuerpo recto como una tabla — ni caderas arriba ni hundidas. Aprieta el abdomen y los glúteos. Respira.', tip:'Semanas 1–2: 20 seg. Semanas 3–4: 30 seg. Mes 2: 40 seg. Mes 3: 45–60 seg.', tags:['Core','Lumbar']},
+      {name:'Estiramientos finales', sets:'10 min', detail:'Cuádriceps (tira del pie hacia el glúteo), isquiotibiales (sentado piernas extendidas), pecho (brazos atrás), espalda (abrazarte a ti mismo). Cada postura 30–40 seg sin rebote.', tip:'A los 58 los estiramientos son tan importantes como el entreno. No los saltes.', tags:['Recuperación','Flexibilidad']}
+    ]
+  },
+  B: {
+    title: 'Sesión B — Full Body',
+    day: 'Jueves',
+    note: 'Diferentes ejercicios que la sesión A pero mismos grupos musculares. La variedad evita sobrecargas y el cuerpo se adapta mejor. Misma estructura: calentamiento + trabajo + estiramientos.',
+    exercises: [
+      {name:'Calentamiento cardiovascular', sets:'8–10 min', detail:'Bici estática o caminadora a ritmo suave. Hoy es el segundo entreno de la semana — si tienes las piernas cargadas del martes, 10 min de cardio ligero las activa perfectamente.', tip:'Escucha el cuerpo. Si algo duele (no el cansancio normal sino dolor), para y consulta.', tags:['Cardio','Activación']},
+      {name:'Prensa de piernas', sets:'3 series × 12 reps', detail:'Siéntate en la máquina, pies a anchura de hombros en la plataforma. Baja hasta que las rodillas formen ~90°. Empuja con los talones. No bloquees las rodillas al final.', tip:'Más cómoda que la sentadilla para empezar — controlas mejor el movimiento. Añade peso progresivamente.', tags:['Cuádriceps','Glúteos','Isquiotibiales']},
+      {name:'Jalón en polea alta', sets:'3 series × 12 reps', detail:'Sentado, agarra la barra ancha con manos más abiertas que los hombros. Tira hacia el pecho apretando los codos hacia abajo y atrás. Controla la subida.', tip:'Fundamental para la bici: fortalece la espalda que soporta tu postura durante horas encima del manillar.', tags:['Espalda','Bíceps']},
+      {name:'Press de pecho con mancuernas', sets:'3 series × 12 reps', detail:'Tumbado en el banco, mancuernas a los lados del pecho. Sube extendiendo los brazos (sin bloquear codos). Baja despacio hasta sentir estiramiento en el pecho.', tip:'Las mancuernas trabajan más el equilibrio que la máquina. Empieza ligero.', tags:['Pecho','Hombros','Tríceps']},
+      {name:'Curl femoral en máquina (tumbado)', sets:'3 series × 12 reps', detail:'Túmbate boca abajo en la máquina. El rodillo debe quedar justo por encima de los talones. Curva las piernas hacia los glúteos de forma controlada. Baja despacio.', tip:'Los isquiotibiales son clave para el ciclismo y para prevenir lesiones de rodilla. Trabájalos bien.', tags:['Isquiotibiales','Glúteos']},
+      {name:'Elevaciones laterales con mancuernas', sets:'3 series × 12 reps', detail:'De pie, mancuernas a los lados. Levanta los brazos hasta la altura de los hombros formando una T. Baja controlado. Codo ligeramente doblado durante todo el movimiento.', tip:'Peso muy ligero aquí. El hombro es muy vulnerable — técnica perfecta antes de añadir carga.', tags:['Hombros']},
+      {name:'Dead bug', sets:'3 series × 8 reps por lado', detail:'Tumbado boca arriba, brazos al techo, rodillas dobladas a 90°. Extiende simultáneamente el brazo derecho y la pierna izquierda hacia el suelo sin tocarlo. Vuelve al centro. Alterna lados. Espalda baja siempre pegada al suelo.', tip:'Uno de los mejores ejercicios de core para ciclistas — estabiliza la zona lumbar que sufre en la bici.', tags:['Core','Lumbar','Estabilidad']},
+      {name:'Estiramientos finales', sets:'10 min', detail:'Igual que el martes: cuádriceps, isquiotibiales, pecho, espalda. Añade estiramiento de cadera (postura del corredor) que en ciclistas suele estar muy cargada.', tip:'Aprovecha también para hacer un pequeño automasaje con las manos en los gemelos si los tienes cargados de la bici del finde.', tags:['Recuperación','Flexibilidad']}
+    ]
+  }
+};
+
+// ── RENDER: WEEK BAR ──────────────────────────────────────────────────────────
+function renderWeekBar() {
+  const meta = getWeekMeta(curWeek);
+  const ws = getWeekStart(curWeek);
+  const we = getDayDate(curWeek, 0);
+  document.getElementById('wk-name').textContent = 'Semana ' + (curWeek + 1);
+  document.getElementById('wk-dates').textContent = fmtS(ws) + ' – ' + fmtS(we);
+  const badge = document.getElementById('wk-badge');
+  badge.textContent = meta.badge;
+  const cols = ['rgba(200,168,74','rgba(212,120,78','rgba(90,172,206','rgba(155,122,206'];
+  const col = cols[meta.phase];
+  badge.style.cssText = `background:${col},0.15);color:${meta.phaseObj.color};border:1px solid ${col},0.4);padding:3px 9px;border-radius:20px;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;`;
+}
+
+// ── RENDER: DAY TABS ──────────────────────────────────────────────────────────
+function renderDayTabs() {
+  let html = '';
+  for(let i=0;i<7;i++){
+    const type = DAY_TYPE[i];
+    const date = getDayDate(curWeek, i);
+    const active = i===curDay ? 'active' : '';
+    html += `<div class="dtab ${type} ${active}" onclick="selectDay(${i})">
+      <span class="ds">${DAY_SHORT[i]}</span>
+      <span class="dd">${fmtS(date)}</span>
+    </div>`;
+  }
+  document.getElementById('dtabs').innerHTML = html;
+}
+
+// ── RENDER: DAY CONTENT ───────────────────────────────────────────────────────
+function renderDayContent() {
+  const type = DAY_TYPE[curDay];
+  const date = getDayDate(curWeek, curDay);
+  const train = getTraining(type, curWeek);
+  const meals = getMeals(curDay);
+
+  const thMap = {gym:'th-gym',fondo:'th-fondo',rec:'th-rec',rest:'th-rest'};
+  const tagMap = {gym:'t-gym',fondo:'t-fondo',rec:'t-rec',rest:'t-rest'};
+  const thC = thMap[type]||'th-rest';
+  const tgC = tagMap[type]||'t-rest';
+
+  let segsHtml = '';
+  if(train.segs){ segsHtml='<div class="tc-segs">'; train.segs.forEach(s=>{const c=s.includes('Z3')?'sg-z3':s.includes('Z2')?'sg-z2':s.includes('Z1')?'sg-z1':s.includes('km')||s.includes('Km')?'sg-z2':'sg-gym';segsHtml+=`<div class="seg ${c}">${s}</div>`;}); segsHtml+='</div>';}
+
+  const gymBtn = train.gym ? `<div class="tc-btn" onclick="setView('gym')">Ver sesión completa →</div>` : (type!=='rest'?`<div class="tc-btn bike-btn">Z1–Z2 · Sin cronómetro</div>`:'');
+
+  let mealsHtml = '';
+  meals.forEach((m,i)=>{
+    const mc = m.badge==='c'?'mc':m.badge==='t'?'mt':m.badge==='p'?'mp':m.badge==='l'?'ml':'';
+    const bl = m.badge ? `<span class="mbadge mb${m.badge}">${m.bl}</span>` : '';
+    const its = m.items.map(it=>`<li><span>${it[0]}</span><span class="qty">${it[1]}</span></li>`).join('');
+    const tip = m.tip ? `<div class="mtip">💡 ${m.tip}</div>` : '';
+    mealsHtml += `<div class="meal ${mc}" id="m${i}"><div class="meal-top" onclick="toggleMeal('m${i}')"><div class="mt-time">${m.t}</div><div class="mt-name">${m.n}</div><div class="mt-right">${bl}<span class="mkcal">${m.k}</span><span class="mchev">▾</span></div></div><div class="meal-body"><ul class="mitems">${its}</ul>${tip}</div></div>`;
+  });
+
+  document.getElementById('day-content').innerHTML = `
+    <div class="dhero">
+      <div class="dh-icon">${DAY_ICONS[type]||'😴'}</div>
+      <div>
+        <div class="dh-name">${DAY_NAMES[curDay]}</div>
+        <div class="dh-date">${fmtL(date)} · Semana ${curWeek+1}</div>
+        <div class="dh-tags">
+          <span class="dtag ${tgC}">${DAY_LABEL[type]||'Descanso'}</span>
+          ${train.time?`<span class="dtag t-time">⏱ ${train.time}</span>`:''}
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-hdr ${thC}"><span>🏋️ ENTRENO</span>${train.time?`<span>${train.time}</span>`:''}</div>
+      <div class="tcard-body">
+        <div class="tc-name">${train.name}</div>
+        <div class="tc-desc">${train.desc}</div>
+        ${segsHtml}${gymBtn}
+      </div>
+    </div>
+    <div class="slbl">🍽️ Nutrición</div>
+    <div class="mlist">${mealsHtml}</div>
+  `;
+}
+
+// ── RENDER: WEEK GRID ─────────────────────────────────────────────────────────
+function renderWeekGrid() {
+  const foodShort = ['Tupper:Pollo · ↓Lentejas(doble)','Tupper:Lentejas · ↓Garbanzos(doble)','Tupper:Garbanzos · ↓Solomillo(doble)','Tupper:Solomillo · ↓Pavo(doble)','Tupper:Pavo · Cena:Pasta 🍝','Arroz pre-fondo · Recuperación','Atún+ensalada · ↓Pollo(doble)'];
+  const cols = {rest:'var(--muted)',gym:'var(--purple)',fondo:'var(--gold)',rec:'var(--green)'};
+  let html='';
+  for(let i=0;i<7;i++){
+    const type=DAY_TYPE[i]; const col=cols[type]||'var(--muted)';
+    const t=getTraining(type,curWeek); const d=getDayDate(curWeek,i);
+    html+=`<div class="wrow wr-${type}" onclick="selectDayW(${i})">
+      <div class="wrow-top"><div class="wrow-day" style="color:${col};">${DAY_NAMES[i]}<span style="font-family:'DM Sans';font-size:10px;color:var(--muted);margin-left:6px;">${fmtS(d)}</span></div>
+      <span class="wrow-tag" style="background:${col}22;color:${col};border:1px solid ${col}44;">${DAY_LABEL[type]}</span></div>
+      <div class="wrow-body"><div class="wrow-train" style="color:${col};">${DAY_ICONS[type]} ${t.time?t.time+' · ':''}${t.name}</div><div class="wrow-food">${foodShort[i]}</div></div>
+    </div>`;
+  }
+  document.getElementById('week-grid').innerHTML = html;
+}
+
+// ── RENDER: GYM ───────────────────────────────────────────────────────────────
+function renderGym() {
+  const meta = getWeekMeta(curWeek);
+  const phNames = ['Adaptación — Aprende los movimientos','Progresión — Añade carga','Específico — Compatible con bici larga','Tapering — Mantenimiento'];
+  document.getElementById('gym-phase-sub').textContent = `Fase ${meta.phase+1} · ${phNames[meta.phase]} · Sparta Sport Center Irún`;
+
+  const ses = GYM[curGymSes];
+  let exHtml = '';
+  ses.exercises.forEach((e,i)=>{
+    const tags = e.tags.map(t=>`<span class="ex-tag">${t}</span>`).join('');
+    exHtml += `<div class="ex-card" id="ex${i}">
+      <div class="ex-top" onclick="toggleEx('ex${i}')">
+        <div class="ex-num">${i===0?'🔥':i===ses.exercises.length-1?'🧘':i}</div>
+        <div class="ex-info"><div class="ex-name">${e.name}</div><div class="ex-sets">${e.sets}</div></div>
+        <div class="ex-chev">▾</div>
+      </div>
+      <div class="ex-body">
+        <div class="ex-tags">${tags}</div>
+        <div class="ex-detail">${e.detail}</div>
+        <div class="ex-tip">💡 ${e.tip}</div>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('gym-content').innerHTML = `
+    <div class="phase-info-box">
+      <div class="pib-title">📋 ${ses.title} — ${ses.day}</div>
+      <div class="pib-text">${ses.note}</div>
+    </div>
+    <div class="slbl">Ejercicios · ${ses.exercises.length} bloques</div>
+    <div class="ex-list">${exHtml}</div>
+    <div class="rest-card" style="margin-top:8px;margin-bottom:8px;">
+      <strong>Descanso entre series:</strong> Ejercicios compuestos (sentadilla, peso muerto, press): <strong style="color:var(--green);">2–3 min</strong>. Ejercicios de aislamiento (elevaciones, curl): <strong style="color:var(--green);">1–2 min</strong>. Plancha y core: <strong style="color:var(--green);">45–60 seg</strong>.
+    </div>
+  `;
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────────────
+function selectDay(d){ curDay=d; renderDayTabs(); renderDayContent(); }
+function selectDayW(d){ curDay=d; setView('dia'); }
+function changeWeek(dir){
+  const ni=curWeek+dir;
+  if(ni<0||ni>42) return;
+  curWeek=ni;
+  // Sync phase pill
+  let ph=0;
+  for(let i=PHASES.length-1;i>=0;i--){ if(curWeek>=PHASES[i].startWeek){ph=i;break;} }
+  curPhase=ph;
+  document.querySelectorAll('.pchip').forEach((el,i)=>el.classList.toggle('active',i===ph));
+  renderWeekBar(); renderDayTabs(); renderDayContent(); renderWeekGrid();
+}
+function setPhase(p){
+  curPhase=p; curWeek=PHASES[p].startWeek;
+  document.querySelectorAll('.pchip').forEach((el,i)=>el.classList.toggle('active',i===p));
+  renderWeekBar(); renderDayTabs(); renderDayContent(); renderWeekGrid();
+}
+function setView(v){
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(el=>el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.getElementById('nb-'+v).classList.add('active');
+  document.querySelector('.app-scroll').scrollTop=0;
+  if(v==='semana') renderWeekGrid();
+  if(v==='gym') renderGym();
+}
+function setGymSession(s){
+  curGymSes=s;
+  document.getElementById('gym-tab-a').classList.toggle('active',s==='A');
+  document.getElementById('gym-tab-b').classList.toggle('active',s==='B');
+  renderGym();
+}
+function toggleMeal(id){ const el=document.getElementById(id); if(el) el.classList.toggle('open'); }
+function toggleEx(id){ const el=document.getElementById(id); if(el) el.classList.toggle('open'); }
+function toggleReceta(card){ card.classList.toggle('open'); }
+function toggleCat(hdr){ const b=hdr.parentElement.querySelector('.ccat-body'); const ch=hdr.querySelector('span:last-child'); if(b.style.display==='none'){b.style.display='block';ch.textContent='▾';}else{b.style.display='none';ch.textContent='›';} }
+function ti(el){ el.classList.toggle('checked'); el.querySelector('.cicheck').textContent=el.classList.contains('checked')?'✓':''; }
+function resetCompra(){ document.querySelectorAll('.citem').forEach(el=>{el.classList.remove('checked');el.querySelector('.cicheck').textContent='';}); }
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+function init(){
+  const diff=Math.ceil((HU108-new Date())/(1000*60*60*24));
+  document.getElementById('cd-num').textContent=diff>0?diff:'0';
+  // Set current week based on today's date
+  const today=new Date(); const base=new Date('2026-07-06');
+  const weekDiff=Math.floor((today-base)/(7*24*60*60*1000));
+  if(weekDiff>=0 && weekDiff<=42){ curWeek=weekDiff; }
+  // Sync phase
+  let ph=0; for(let i=PHASES.length-1;i>=0;i--){if(curWeek>=PHASES[i].startWeek){ph=i;break;}} curPhase=ph;
+  document.querySelectorAll('.pchip').forEach((el,i)=>el.classList.toggle('active',i===ph));
+  curDay = (new Date().getDay() + 6) % 7; // Convierte Dom=0 de JS a Lun=0 nuestro
+  renderWeekBar(); renderDayTabs(); renderDayContent(); renderWeekGrid();
+}
+init();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('SW registrado'))
+      .catch(e => console.log('SW error:', e));
+  });
+}
+</script>
+</body>
+</html>

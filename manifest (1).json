@@ -1,0 +1,25 @@
+{
+  "name": "HU108 2027 — Iñaki",
+  "short_name": "HU108 2027",
+  "description": "Plan anual de entrenamiento y nutrición orientado a la HU108 mayo 2027",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0E1209",
+  "theme_color": "#0E1209",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
